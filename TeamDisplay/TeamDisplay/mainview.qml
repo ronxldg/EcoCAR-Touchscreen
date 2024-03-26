@@ -19,40 +19,8 @@ Rectangle {
     id: page
     width: 800
     height: 480
-    color: "#BBE5FB" // Georgia Tech old gold background color
+    color: "#B3A369" // Georgia Tech old gold background color
 
-
-    ImageButton {
-        id: image_button3
-        x: 64
-        y: 13
-        width: 93
-        height: 122
-        text: ""
-        z: 2
-        imageUp: "images/internal_button_up.bmp"
-        textColor: "#000000"
-        font.pixelSize: 18
-        imageDown: "images/internal_button_dn.bmp"
-        font.family: "DejaVu Sans"
-        font.bold: false
-    }
-
-    ImageButton {
-        id: image_button4
-        x: 203
-        y: 13
-        width: 93
-        height: 122
-        text: ""
-        z: 1
-        imageUp: "images/internal_button_up.bmp"
-        textColor: "#000000"
-        font.pixelSize: 18
-        imageDown: "images/internal_button_dn.bmp"
-        font.family: "DejaVu Sans"
-        font.bold: false
-    }
 
     Text {
         id: text1
@@ -71,22 +39,7 @@ Rectangle {
         y: 240
         width: 343
         height: 232
-        color: "#ffffff"
-
-        ImageButton {
-            id: image_button2
-            x: 97
-            y: 8
-            width: 150
-            height: 110
-            text: ""
-            imageUp: "images/internal_button_up.bmp"
-            textColor: "#000000"
-            font.pixelSize: 18
-            imageDown: "images/internal_button_dn.bmp"
-            font.family: "DejaVu Sans"
-            font.bold: false
-        }
+        color: "#d6dbd4"
 
         Text {
             id: text2
@@ -123,6 +76,15 @@ Rectangle {
             text: qsTr("value")
             font.pixelSize: 35
         }
+
+        Image {
+            id: image3
+            x: 122
+            y: 8
+            width: 100
+            height: 100
+            source: "images/lvpresent(1).png"
+        }
     }
 
     Rectangle {
@@ -131,23 +93,98 @@ Rectangle {
         y: 8
         width: 343
         height: 226
-        color: "#ffffff"
+        color: "#d6dbd4"
+
+        Image {
+            id: image1
+            x: 56
+            y: 8
+            width: 100
+            height: 100
+            source: "images/traffic light.png"
+        }
+
+        Image {
+            id: image2
+            x: 190
+            y: 8
+            width: 100
+            height: 100
+            source: "images/ecodisabled(1).png"
+        }
     }
 
     Rectangle {
         id: rectangle3
-        x: 357
-        y: 240
-        width: 435
-        height: 232
-        color: "#ffffff"
+        x: 368
+        y: 128
+        width: 424
+        height: 344
+        color: "#d6dbd4"
+
+        Image {
+            id: image4
+            x: 91
+            y: 52
+            width: 203
+            height: 284
+            source: "images/PCMmodel.png"
+
+            Text {
+                id: text4
+                x: 60
+                y: 110
+                text: qsTr("SoC (%)")
+                font.pixelSize: 20
+            }
+
+            Text {
+                id: text5
+                x: 60
+                y: 147
+                text: qsTr("Temp (C)")
+                font.pixelSize: 20
+            }
+        }
 
         Text {
-            id: text4
-            x: 34
-            y: 23
-            text: qsTr("PCM Diagnostic Data")
-            font.pixelSize: 35
+            id: text6
+            x: 8
+            y: 10
+            text: qsTr("Drive Mode: ")
+            font.pixelSize: 30
+        }
+
+        Text {
+            id: text7
+            x: 302
+            y: 76
+            text: qsTr("F_MotTrq")
+            font.pixelSize: 20
+        }
+
+        Text {
+            id: text8
+            x: 302
+            y: 106
+            text: qsTr("F_MotTemp")
+            font.pixelSize: 20
+        }
+
+        Text {
+            id: text9
+            x: 300
+            y: 253
+            text: qsTr("R_MotTrq")
+            font.pixelSize: 20
+        }
+
+        Text {
+            id: text10
+            x: 300
+            y: 283
+            text: qsTr("R_MotTemp")
+            font.pixelSize: 20
         }
     }
 
@@ -155,13 +192,13 @@ Rectangle {
         id: image_button5
         x: 368
         y: 8
-        width: 208
+        width: 201
         height: 114
         text: "Eco"
-        imageUp: "images/internal_button_up.bmp"
-        textColor: "#000000"
+        textColor: "#ffffff"
+        imageUp: "images/blue.png"
         font.pixelSize: 35
-        imageDown: "images/internal_button_dn.bmp"
+        imageDown: "images/blue.png"
         font.family: "DejaVu Sans"
         font.bold: false
     }
@@ -173,42 +210,13 @@ Rectangle {
         width: 208
         height: 114
         text: "DMS"
-        imageUp: "images/internal_button_up.bmp"
+        textYCenterOffSet: -3
+        imageUp: "images/blue.png"
         font.pixelSize: 35
-        textColor: "#000000"
-        imageDown: "images/internal_button_dn.bmp"
+        textColor: "#ffffff"
+        imageDown: "images/blue.png"
         font.bold: false
         font.family: "DejaVu Sans"
-    }
-
-    VerticalRadioButtonList {
-        id: radioButtonListVertical1
-        x: 427
-        y: 352
-        z: 4
-        imageUnChecked: "images/radiobutton.png"
-        model: ListModel {
-            ListElement {
-                item_checked: true
-                item_text: "radio 1"
-                item_value: "1"
-            }
-
-            ListElement {
-                item_checked: false
-                item_text: "radio 2"
-                item_value: "2"
-            }
-        }
-        imageChecked: "images/radiobutton_click.png"
-        font.family: "DejaVu Sans"
-        imageHeight: 28
-        imageWidth: 28
-        font.bold: false
-        itemSpacing: 10
-        spacing: 4
-        font.pixelSize: 16
-        textColor: "#000000"
     }
 
 }
