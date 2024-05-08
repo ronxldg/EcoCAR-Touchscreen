@@ -1,0 +1,27 @@
+#!/bin/sh
+
+CAN_AGENT=/application/bin/can-agent
+CAN_PORT=0
+CAN_BAUDRATE=500000
+
+case "$1" in
+start)
+	# show this during quiet boot too.
+	echo "starting CAN Agent..." >&2
+	start-stop-daemon -m -p /var/run/can_agent.pid -b -a $CAN_AGENT -S -- -c $CAN_PORT -b $CAN_BAUDRATE
+	;;
+stop)
+	echo "stoping CAN Agent..."
+	start-stop-daemon -p /var/run/can_agent.pid -K
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "Usage: /etc/init.d/can_agent{start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

@@ -1,0 +1,116 @@
+# levelbars
+send (can_id = 0x01, dlc = 1, data = [16], wait=250)
+send (can_id = 0x02, dlc = 1, data = [18], wait=250)
+send (can_id = 0x03, dlc = 1, data = [10], wait=250)
+# OIL LED
+send (can_id = 0x10, dlc = 1, data = [1], wait=250)
+# speedometer
+send (can_id = 0x20, dlc = 1, data = [47], wait=500)
+
+# flutter levelbars and speedo
+send (can_id = 0x01, dlc = 1, data = [9], wait=32)
+send (can_id = 0x02, dlc = 1, data = [18], wait=33)
+send (can_id = 0x03, dlc = 1, data = [5], wait=30)
+send (can_id = 0x20, dlc = 1, data = [68], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [8], wait=30)
+send (can_id = 0x02, dlc = 1, data = [18], wait=31)
+send (can_id = 0x03, dlc = 1, data = [4], wait=29)
+send (can_id = 0x20, dlc = 1, data = [69], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [7], wait=29)
+send (can_id = 0x02, dlc = 1, data = [18], wait=27)
+send (can_id = 0x03, dlc = 1, data = [3], wait=30)
+send (can_id = 0x20, dlc = 1, data = [70], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [8], wait=30)
+send (can_id = 0x02, dlc = 1, data = [17], wait=33)
+send (can_id = 0x03, dlc = 1, data = [5], wait=15)
+send (can_id = 0x20, dlc = 1, data = [71], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [10], wait=19)
+send (can_id = 0x02, dlc = 1, data = [17], wait=20)
+send (can_id = 0x03, dlc = 1, data = [7], wait=22)
+send (can_id = 0x20, dlc = 1, data = [70], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [11], wait=22)
+send (can_id = 0x02, dlc = 1, data = [16], wait=32)
+send (can_id = 0x03, dlc = 1, data = [9], wait=35)
+send (can_id = 0x20, dlc = 1, data = [71], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [13], wait=23)
+send (can_id = 0x02, dlc = 1, data = [16], wait=24)
+send (can_id = 0x03, dlc = 1, data = [11], wait=20)
+send (can_id = 0x20, dlc = 1, data = [69], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [15], wait=25)
+send (can_id = 0x02, dlc = 1, data = [15], wait=27)
+send (can_id = 0x03, dlc = 1, data = [14], wait=22)
+send (can_id = 0x20, dlc = 1, data = [68], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [16], wait=32)
+send (can_id = 0x02, dlc = 1, data = [14], wait=33)
+send (can_id = 0x03, dlc = 1, data = [16], wait=36)
+send (can_id = 0x20, dlc = 1, data = [67], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [17], wait=30)
+send (can_id = 0x02, dlc = 1, data = [14], wait=29)
+send (can_id = 0x03, dlc = 1, data = [17], wait=31)
+send (can_id = 0x20, dlc = 1, data = [68], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [18], wait=32)
+send (can_id = 0x02, dlc = 1, data = [13], wait=33)
+send (can_id = 0x03, dlc = 1, data = [16], wait=32)
+send (can_id = 0x20, dlc = 1, data = [69], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [17], wait=33)
+send (can_id = 0x02, dlc = 1, data = [12], wait=32)
+send (can_id = 0x03, dlc = 1, data = [15], wait=33)
+send (can_id = 0x20, dlc = 1, data = [70], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [16], wait=35)
+send (can_id = 0x02, dlc = 1, data = [12], wait=34)
+send (can_id = 0x03, dlc = 1, data = [17], wait=35)
+send (can_id = 0x20, dlc = 1, data = [71], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [17], wait=32)
+send (can_id = 0x02, dlc = 1, data = [11], wait=35)
+send (can_id = 0x03, dlc = 1, data = [18], wait=32)
+send (can_id = 0x20, dlc = 1, data = [70], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [15], wait=35)
+send (can_id = 0x02, dlc = 1, data = [11], wait=34)
+send (can_id = 0x03, dlc = 1, data = [16], wait=33)
+send (can_id = 0x20, dlc = 1, data = [69], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [16], wait=20)
+send (can_id = 0x02, dlc = 1, data = [9], wait=22)
+send (can_id = 0x03, dlc = 1, data = [15], wait=23)
+send (can_id = 0x20, dlc = 1, data = [68], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [15], wait=32)
+send (can_id = 0x02, dlc = 1, data = [8], wait=32)
+send (can_id = 0x03, dlc = 1, data = [14], wait=32)
+send (can_id = 0x20, dlc = 1, data = [68], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [14], wait=32)
+send (can_id = 0x02, dlc = 1, data = [7], wait=32)
+send (can_id = 0x03, dlc = 1, data = [13], wait=32)
+send (can_id = 0x20, dlc = 1, data = [69], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [15], wait=32)
+send (can_id = 0x02, dlc = 1, data = [5], wait=32)
+send (can_id = 0x03, dlc = 1, data = [16], wait=32)
+send (can_id = 0x20, dlc = 1, data = [70], wait=20)
+
+send (can_id = 0x01, dlc = 1, data = [14], wait=32)
+send (can_id = 0x02, dlc = 1, data = [2], wait=32)
+send (can_id = 0x03, dlc = 1, data = [17], wait=20)
+send (can_id = 0x20, dlc = 1, data = [72], wait=500)
+#
+# shut-down
+send (can_id = 0x01, dlc = 1, data = [0], wait=10)
+send (can_id = 0x02, dlc = 1, data = [0], wait=10)
+send (can_id = 0x03, dlc = 1, data = [0], wait=10)
+send (can_id = 0x10, dlc = 1, data = [0], wait=10)
+send (can_id = 0x20, dlc = 1, data = [0], wait=10)
