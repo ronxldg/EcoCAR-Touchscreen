@@ -46,6 +46,8 @@ M:rt=%s,T:ressTmp.text=%s
 M:rs=%s,T:ressSOC.text=%s
 
 # QML message to TIO message translations
+G:DMS.state=%s,T:dms=%s
+G:Eco.state=%s,T:eco=%s
 
 # ==============================================
 
