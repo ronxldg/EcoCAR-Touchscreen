@@ -113,6 +113,16 @@ int canServerSocketRead(int socketFd, char *msgBuff)
 
         // YOUR CAN-to-TIO TRANSLATE CODE GOES HERE
         int n = 0;
+        float RESStmp = 0.0;
+        float RESSsoc = 0.0;
+        //char DrvMode[7];
+        float MotMaxTrq = 332.0;
+        float F_MotTrq = 0.0;
+        // float F_MotSpd = 0.0;
+        float F_MotTmp = 0.0;
+        float R_MotTrq = 0.0;
+        // float R_MotSpd = 0.0;
+        float R_MotTmp = 0.0;
 
         // example translate - see CAN_messages.docx for message details
         switch (frame.can_id)
@@ -120,60 +130,78 @@ int canServerSocketRead(int socketFd, char *msgBuff)
             // all little endian
             // some signed, some unsigned
             case 0x504:          // RESS Data
-                // RESS temperature: rt=%s
+                // RESS temperature: rt=%s, signed, bytes 4 and 5
+                RESStmp = 0.5*(frame.data[4]);
+                if ((0x01 & frame.data[5]) >> 0 == 1)
+                {
+                    RESStmp = -RESStmp;
+                }
                 msgBuff[0] = 'r';
                 msgBuff[1] = 't';
                 msgBuff[2] = '=';
-                n = sprintf(&msgBuff[3],"%.1f\n", 0.5*frame.data[0]);
+                n = sprintf(&msgBuff[3],"%.1f\n", RESStmp);
 
-                // RESS SOC: rs=%s, unsigned
+                // RESS SOC: rs=%s, unsigned, bytes 2 and 3
+                RESSsoc = 0.1*(((0x03 & frame.data[3]) << 8) + frame.data[2]);
                 msgBuff[n] = 'r';
                 msgBuff[n+1] = 's';
                 msgBuff[n+2] = '=';
-                n = sprintf(&msgBuff[n+3],"%.1f\n", 0.1*frame.data[0]);
+                n = sprintf(&msgBuff[n+3],"%.1f\n", RESSsoc);
 
                 break;
-            case 0x500:          // Driver Interface
-                msgBuff[0] = 'd';
-                msgBuff[1] = 'm';
-                msgBuff[2] = '=';
-                sprintf(&msgBuff[3], "%d\n", frame.data[1]);
+            // case 0x500:          // Driver Interface
+            //     msgBuff[0] = 'd';
+            //     msgBuff[1] = 'm';
+            //     msgBuff[2] = '=';
+            //     sprintf(&msgBuff[3], "%d\n", frame.data[1]);
 
-                break;
+            //     break;
             case 0x502:          // Rear Motor Data
                 // Rear motor temp: rmtp=%s
+                R_MotTmp = 0.5*(frame.data[6]);
                 msgBuff[0] = 'r';
                 msgBuff[1] = 'm';
                 msgBuff[2] = 't';
                 msgBuff[3] = 'p';
                 msgBuff[4] = '=';
-                n = sprintf(&msgBuff[5],"%.1f\n", 0.5*frame.data[0]);
+                n = sprintf(&msgBuff[5],"%.1f\n", R_MotTmp);
 
                 // Rear motor torque: rmtq=%s
-                msgBuff[0] = 'r';
-                msgBuff[1] = 'm';
-                msgBuff[2] = 't';
-                msgBuff[3] = 'q';
-                msgBuff[4] = '=';
-                n = sprintf(&msgBuff[n+5],"%.1f\n", 0.25*frame.data[0]);
+                R_MotTrq = 0.25*(((0x07 & frame.data[3]) << 8) + frame.data[2]);
+                if ((0x08 & frame.data[3]) >> 3 == 1)
+                {
+                    R_MotTrq = -R_MotTrq;
+                }
+                msgBuff[n] = 'r';
+                msgBuff[n+1] = 'm';
+                msgBuff[n+2] = 't';
+                msgBuff[n+3] = 'q';
+                msgBuff[n+4] = '=';
+                n = sprintf(&msgBuff[n+5],"%.1f\n", R_MotTrq);
 
                 break;
             case 0x501:          // Front Motor Data
                 // Front motor temp: fmtp=%s
+                F_MotTmp = 0.5*(frame.data[6]);
                 msgBuff[0] = 'f';
                 msgBuff[1] = 'm';
                 msgBuff[2] = 't';
                 msgBuff[3] = 'p';
                 msgBuff[4] = '=';
-                n = sprintf(&msgBuff[5],"%.1f\n", 0.5*frame.data[0]);
+                n = sprintf(&msgBuff[5],"%.1f\n", F_MotTmp);
 
                 // Front motor torque: fmtq=%s
-                msgBuff[0] = 'f';
-                msgBuff[1] = 'm';
-                msgBuff[2] = 't';
-                msgBuff[3] = 'q';
-                msgBuff[4] = '=';
-                n = sprintf(&msgBuff[n+5],"%.1f\n", 0.25*frame.data[0]);
+                F_MotTrq = 0.25*(((0x07 & frame.data[3]) << 8) + frame.data[2]);
+                if ((0x08 & frame.data[3]) >> 3 == 1)
+                {
+                    F_MotTrq = -F_MotTrq;
+                }
+                msgBuff[n] = 'f';
+                msgBuff[n+1] = 'm';
+                msgBuff[n+2] = 't';
+                msgBuff[n+3] = 'q';
+                msgBuff[n+4] = '=';
+                n = sprintf(&msgBuff[n+5],"%.1f\n", F_MotTrq);
                 
                 break;
             default:
