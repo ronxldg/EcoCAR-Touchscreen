@@ -172,6 +172,7 @@ int canServerSocketRead(int socketFd, char *msgBuff)
                 {
                     R_MotTrq = -R_MotTrq;
                 }
+                R_MotTrq = 100.0*R_MotTrq/MotMaxTrq;
                 msgBuff[n] = 'r';
                 msgBuff[n+1] = 'm';
                 msgBuff[n+2] = 't';
@@ -196,6 +197,7 @@ int canServerSocketRead(int socketFd, char *msgBuff)
                 {
                     F_MotTrq = -F_MotTrq;
                 }
+                F_MotTrq = 100.0*F_MotTrq/MotMaxTrq;
                 msgBuff[n] = 'f';
                 msgBuff[n+1] = 'm';
                 msgBuff[n+2] = 't';
